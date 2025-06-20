@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'ecom/style.css' %}"> 
+    </head>
+    <body>
+           <h1>This is index templates </h1>
+           <h2>
+            <!-- <a href="/hello/{{item.id}}"></a> -->
+                {%for item in items%}
+                <a href="{%url 'ecom:detail' item.id%}">
+                Id:{{item.id}}  Имя :{{item.name}}  Цена: {{item.price}} Прим:{{item.description}} <br/>
+                </a>
+                {% endfor %}
+           </h2>
+    </body>
+</html>
