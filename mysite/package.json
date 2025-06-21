@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "npx @tailwindcss/cli -i ecom/static/ecom/src/tailwind.css -o ecom/static/ecom/style.css --watch"
+    "build" : "npx @tailwindcss/cli -i ecom/static/ecom/src/tailwind.css -o ecom/static/ecom/style.css --minify",
+    "watch": "npx @tailwindcss/cli -i ecom/static/ecom/src/tailwind.css -o ecom/static/ecom/style.css --watch"
   },
   "keywords": [],
   "author": "",
