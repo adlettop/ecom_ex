@@ -1,30 +1,34 @@
+{% extends 'ecom/base.html' %}
 {% load static %}
 
 
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 'ecom/style.css' %}"> 
-    </head>
-    <body>
-        <nav>
-        <div>
-            <div>
-                <div>
-                    <div class = "flex">
+
+{% block content %}
+    <nav class="bg-white shadow-lg">
+        <div class= "max-w-6xl mx-auto px-4">
+            <div class ="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                    <a href="#" class="flex items-center px-2 py-4">
                         <img class="w-8 h-8" src="{% static 'ecom/images/shop.png' %}" alt="shop" />
-                        <span class= "text-xl"> Adletssss shop</span>
+                        <span class="text-gray-500 font-semibold text-xl"> Adlet's shop</span> 
+                        </a>
+                    </div>
+                    <div class="items-center flex space-x-1"> 
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500"> Home</a>
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500"> About</a>
+                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500"> Contacts</a>
                     </div>
                 </div>
             </div>
         </div>
-        </nav>
-           <h2>
-            <!-- <a href="/hello/{{item.id}}"></a> -->
-                {%for item in items%}
-                <a href="{%url 'ecom:detail' item.id%}">
-                Id:{{item.id}}  Имя :{{item.name}}  Цена: {{item.price}} Прим:{{item.description}} <br/>
-                </a>
-                {% endfor %}
-           </h2>
-    </body>
-</html>
+    </nav>
+        <h2>
+        <!-- <a href="/hello/{{item.id}}"></a> -->
+            {%for item in items%}
+            <a href="{%url 'ecom:detail' item.id%}">
+            Id:{{item.id}}  Имя :{{item.name}}  Цена: {{item.price}} Прим:{{item.description}} <br/>
+            </a>
+            {% endfor %}
+        </h2>
+{% endblock content %}
