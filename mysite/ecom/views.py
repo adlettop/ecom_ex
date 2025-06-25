@@ -16,3 +16,13 @@ def indexItem(request, My_id):
     }
     return render(request,"ecom/detail.html", context=context)
 
+def add_item(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        image = request.FILES.get('upload')
+        item = Product(name=name,price=price,description=description, image=image)
+        item.save()
+    return render(request,'ecom/additem.html')
+
