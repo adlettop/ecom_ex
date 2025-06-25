@@ -2,32 +2,36 @@
 
 {% block content %}
 <div class="ml-[100px]">
-    <h1 class="text-3xl m-8 font-semibold text-blue-700">Create a New Item</h1>
+    <h1 class="text-3xl m-8 font-semibold text-blue-700">Update Item</h1>
     <form class="w-2/5 bg-gray-100 border border-gray-300 rounded-lg shadow-lg m-8 px-10 py-10" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-6">
             <label class="block text-gray-800 text-base font-medium mb-2" for="name">Item Name</label>
             <input class="w-full shadow-sm border border-gray-400 rounded-md py-2 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" 
-                   type="text" placeholder="Enter item name" name="name" id="name">
+                   value="{{ item.name }}" type="text" placeholder="Enter item name" name="name" id="name">
 
             <label class="block text-gray-800 text-base font-medium mb-2 mt-4" for="price">Item Price</label>
             <input class="w-full shadow-sm border border-gray-400 rounded-md py-2 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" 
-                   type="text" placeholder="Enter price" name="price" id="price">
+                   value="{{ item.price }}" type="text" placeholder="Enter price" name="price" id="price">
 
             <label class="block text-gray-800 text-base font-medium mb-2 mt-4" for="description">Item Description</label>
             <input class="w-full shadow-sm border border-gray-400 rounded-md py-2 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" 
-                   type="text" placeholder="Enter description" name="description" id="description">
+                   value="{{ item.description }}" type="text" placeholder="Enter description" name="description" id="description">
 
-            <label class="block text-gray-800 text-base font-medium mb-2 mt-4" for="upload">Upload Image</label>
+            {% if item.image %}
+                <div class="mt-4 mb-2">
+                    <img class="w-24 h-24 object-cover rounded border border-gray-300" src="{{ item.image.url }}" alt="Current Image">
+                </div>
+            {% endif %}
+
+            <label class="block text-gray-800 text-base font-medium mb-2" for="upload">Update Image</label>
             <input class="block mt-1" type="file" accept="image/*" name="upload" id="upload">
 
             <button class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out" 
                     type="submit" name="Add Item" value="Add Item">
-                Submit Item
+                Update Item
             </button>
         </div>
     </form>
 </div>
-
-
 {% endblock content %}

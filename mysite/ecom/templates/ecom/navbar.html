@@ -1,21 +1,31 @@
- {% load static %}
- <nav class="bg-white shadow-lg">
-        <div class= "max-w-6xl mx-auto px-4">
-            <div class ="flex justify-between">
-                <div class="flex space-x-7">
-                    <div>
-                    <a href="#" class="flex items-center px-2 py-4">
-                        <img class="w-8 h-8" src="{% static 'ecom/images/shop.png' %}" alt="shop" />
-                        <span class="text-gray-500 font-semibold text-xl"> Adlet's shop</span> 
-                        </a>
-                    </div>
-                    <div class="items-center flex space-x-1"> 
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500"> Home</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500"> About</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold "> Contacts</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold "> Place</a>
-                    </div>
-                </div>
-            </div>
+{% load static %}
+<nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <div class="flex space-x-7">
+          <div >
+            <a href="#" class="flex items-center px-2 py-4">
+            <img class="h-8 w-8" src="{% static 'ecom/images/shop.png' %}" alt="logo" />
+            <span class="text-gray-500 font-semibold text-xl">Pro Shop</span>
+          </a>
+          </div>
+          <div class="items-center flex space-x-1">
+            <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500">Home</a>
+            <a href="#" class="py-4 px-2 text-gray-500 font-semibold">Add Item</a>
+            <a href="#" class="py-4 px-2 text-gray-500 font-semibold">Contacts</a>
+            {% if user.is_authenticated %}
+              <form method="post" action="{% url 'users:logout' %}" class="inline">
+                {% csrf_token %}
+                <button type="submit" class="py-4 px-2 text-gray-500 font-semibold bg-transparent border-none cursor-pointer">
+                  Logout
+                </button>
+              </form>
+              <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'users:profile' %}">Profile</a>
+            {% else %}
+              <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'users:login' %}">Login</a>
+            {% endif %}
+          </div>
         </div>
-    </nav>
+      </div>
+  </div>
+</nav>
