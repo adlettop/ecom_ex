@@ -14,16 +14,7 @@
     <body>
        {% include "ecom/navbar.html" %}
         {% block content %}
-        {% if user.is_authenticated %}
-  <form method="post" action="{% url 'ecom:logout' %}">
-      {% csrf_token %}
-      <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded">
-          Logout
-      </button>
-  </form>
-{% else %}
-  <a href="{% url 'ecom:login' %}" class="text-blue-600">Login</a>
-{% endif %}
+        
         {% endblock content%}
     </body>
 </html>

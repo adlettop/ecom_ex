@@ -130,4 +130,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = reverse_lazy('ecom:index')
-LOGOUT_REDIRECT_URL = reverse_lazy('ecom:index')
+LOGIN_URL = reverse_lazy('users:login')

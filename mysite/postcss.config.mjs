@@ -10,9 +10,6 @@ module.exports = {
     './templates/**/*.html',
     './ecom/templates/**/*.html',
     './**/templates/**/*.html',
-    './templates/**/*.html',
-    "./users/**/*.{html,js}",
-    './**/templates/**/*.html',
   ],
   theme: {
     extend: {},
